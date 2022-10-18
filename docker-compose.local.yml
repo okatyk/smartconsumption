@@ -2,10 +2,10 @@ version: "3.9"
 services:
   db:
     build:
-      context: ./data/src/main/resources/mariadb
+      context: ./data/src/main/resources/mariadb/Dockerfile
     environment:
       MARIADB_ROOT_PASSWORD: hummer
-      MARIABB_DATABASE: smart
+      MARIADB_DATABASE: smart
     ports:
       - "3350:3306"
 
