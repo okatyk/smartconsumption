@@ -1,0 +1,2 @@
+com/smart/consumption/electricmeasure/DefaultElectricMeasureServiceTest.java
+ com.smart.consumption.electricmeasure.DefaultElectricMeasureServiceTest

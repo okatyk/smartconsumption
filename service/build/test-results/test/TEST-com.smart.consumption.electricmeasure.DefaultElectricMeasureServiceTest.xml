@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.smart.consumption.electricmeasure.DefaultElectricMeasureServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-16T14:03:42" hostname="ISSCPF1Q3HT4" time="0.022">
+  <properties/>
+  <testcase name="valami()" classname="com.smart.consumption.electricmeasure.DefaultElectricMeasureServiceTest" time="0.022"/>
+  <system-out><![CDATA[test2	620.0
+test1	600.0
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

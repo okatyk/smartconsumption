@@ -1,0 +1,12 @@
+bootJar.enabled = false
+
+jar.enabled = true
+
+dependencies {
+    implementation project(':data')
+    implementation 'org.springframework:spring-context'
+    implementation "io.projectreactor:reactor-core:${reactorVersion}"
+    implementation "io.projectreactor:reactor-test:${reactorVersion}"
+    implementation  "org.springframework.boot:spring-boot-starter-data-jpa:2.3.4.RELEASE"
+
+}

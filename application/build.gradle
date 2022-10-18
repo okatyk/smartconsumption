@@ -1,0 +1,10 @@
+jar.enabled = true
+
+dependencies {
+    implementation project(':web')
+    implementation project(':data')
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation'org.mariadb.jdbc:mariadb-java-client:2.1.2'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.22'
+}

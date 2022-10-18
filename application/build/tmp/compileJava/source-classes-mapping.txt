@@ -1,0 +1,2 @@
+com/smart/consumption/SmartConsumptionApplication.java
+ com.smart.consumption.SmartConsumptionApplication

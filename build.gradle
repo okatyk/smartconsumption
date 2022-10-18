@@ -1,0 +1,77 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.5.RELEASE' apply false
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'apply false
+    id 'java'
+    id 'idea'
+}
+
+subprojects {
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    group = 'com.smart.consumption'
+    version = '1.0.0'
+    sourceCompatibility = '14'
+
+
+    repositories {
+        mavenCentral()
+        jcenter()
+
+    }
+
+    ext {
+        set('springCloudVersion', "Hoxton.SR1")
+        retrofitVersion = '2.7.2'
+        springfox = '2.10.5'
+        retrofit = '2.7.2'
+        reactorVersion = '3.3.5.RELEASE'
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+
+    configurations {
+        developmentOnly
+        runtimeClasspath {
+            extendsFrom developmentOnly
+        }
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+        annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+        testImplementation('org.springframework.boot:spring-boot-starter-test') {
+            exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+        }
+        implementation'org.mariadb.jdbc:mariadb-java-client:2.1.2'
+        testCompile group: 'com.h2database', name: 'h2', version: '1.4.200'
+        compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.22'
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '2.4.0'
+
+        annotationProcessor('org.springframework.boot:spring-boot-starter-data-jpa')
+        implementation('org.springframework.boot:spring-boot-starter-web')
+
+    }
+
+    compileJava.dependsOn(processResources)
+
+    test {
+        useJUnitPlatform()
+    }
+    bootJar {
+        // for Docker build
+        archiveFileName = 'app.jar'
+    }
+
+}
