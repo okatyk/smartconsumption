@@ -13,7 +13,6 @@ import lombok.Data;
 @Table(name = "ELECTRIC_MEASURES")
 @Data
 public class ElectricMeasureEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

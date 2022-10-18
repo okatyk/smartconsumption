@@ -9,5 +9,4 @@ public interface WaterMeasureEntityRepository extends CrudRepository<WaterMeasur
     List<WaterMeasureEntity> findAll();
     List<WaterMeasureEntity> findAllByDateOfMeasuringBetween(LocalDateTime start, LocalDateTime end);
     WaterMeasureEntity save(WaterMeasureEntity entity);
-
 }

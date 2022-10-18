@@ -1,0 +1,1 @@
+INSERT INTO smart.apartments (apartmentId, floor, number) VALUES (1, '1', '1');

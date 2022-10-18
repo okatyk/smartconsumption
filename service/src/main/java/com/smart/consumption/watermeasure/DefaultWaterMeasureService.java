@@ -39,8 +39,8 @@ public class DefaultWaterMeasureService implements WaterMeasureService {
 
     @Override
     public Mono<ConsumptionResponse<WaterMeasureModel>> getAllWaterByDate(final LocalDate start, final LocalDate end) {
-        LocalDateTime startOfTheDay = start.atStartOfDay();
-        LocalDateTime endOfTheDay = end.plusDays(1).atStartOfDay();
+        final LocalDateTime startOfTheDay = start.atStartOfDay();
+        final LocalDateTime endOfTheDay = end.plusDays(1).atStartOfDay();
 
         final List<WaterMeasureModel> collect = waterMeasureEntityRepository.findAllByDateOfMeasuringBetween(startOfTheDay, endOfTheDay).stream()
                 .map(waterMeasureEntity -> entityMapper.mapEntityToModel(waterMeasureEntity))

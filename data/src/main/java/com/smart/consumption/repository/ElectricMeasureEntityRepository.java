@@ -8,18 +8,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ElectricMeasureEntityRepository extends CrudRepository<ElectricMeasureEntity, Long> {
-    List<ElectricMeasureEntity> findAllByDateOfMeasuringAfter(LocalDateTime time);
-
-    List<ElectricMeasureEntity> findAllByDateOfMeasuringBefore(LocalDateTime time);
-
     List<ElectricMeasureEntity> findAllByDateOfMeasuringBetween(LocalDateTime start, LocalDateTime end);
 
     List<ElectricMeasureEntity> findAll();
 
     ElectricMeasureEntity save(ElectricMeasureEntity entity);
-
-
-    // List<ElectricMeasureEntity> saveAll(List<ElectricMeasureEntity> entities);
-
-
 }

@@ -39,8 +39,8 @@ public class DefaultHeatingMeasureService implements HeatingMeasureService {
 
     @Override
     public Mono<ConsumptionResponse<HeatingMeasureModel>> getAllHeatingByDate(final LocalDate start, final LocalDate end) {
-        LocalDateTime startOfTheDay = start.atStartOfDay();
-        LocalDateTime endOfTheDay = end.plusDays(1).atStartOfDay();
+        final LocalDateTime startOfTheDay = start.atStartOfDay();
+        final LocalDateTime endOfTheDay = end.plusDays(1).atStartOfDay();
 
         final List<HeatingMeasureModel> heatingMeasureModelList = heatingMeasureEntityRepository.findAllByDateOfMeasuringBetween(startOfTheDay, endOfTheDay).stream()
                 .map(heatingMeasureEntity -> entityMapper.mapEntityToModel(heatingMeasureEntity))
@@ -70,8 +70,8 @@ public class DefaultHeatingMeasureService implements HeatingMeasureService {
                         .min(Comparator.comparing(HeatingMeasureModel::getMeasuredData))
                         .orElse(HeatingMeasureModel.builder().build());
 
-                var napi = new Consumptions(listEntry.getKey(), lastDaily.getMeasuredData() - firstDaily.getMeasuredData(), entry.getKey());
-                dailyConsumption.add(napi);
+                var daily = new Consumptions(listEntry.getKey(), lastDaily.getMeasuredData() - firstDaily.getMeasuredData(), entry.getKey());
+                dailyConsumption.add(daily);
             }
 
         }
